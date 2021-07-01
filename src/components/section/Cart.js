@@ -30,13 +30,13 @@ export class Cart extends Component {
                             <div className="cart" key={item.id}>
                                 <img src={item.src} alt="" className='imageCart'/>
                                 <div className="">
-                                    <div className="">
-                                        <h2>{item.title}</h2>
+                                    <div className="data">
+                                        <h3>{item.title}</h3>
                                         <span>${item.price * item.quantity}</span>
                                     </div>
                                     {/* <Colors colors={item.colors}/> */}
                                     <p>{item.description}</p>
-                                    <p>{item.content}</p>
+                                    
                                     <div className="amount">
                                        <div className="counter">
                                        <button className="count" onClick={() => reduction(item.uid)}> - </button>
