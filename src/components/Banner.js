@@ -24,7 +24,7 @@ export default function Banner() {
 const Bann = styled.div`
     width: 100%;
     margin: 0;
-    height: 45vh;
+    height: 30vh;
     background-color: #0B1D2B;
     text-align: left;
     color: #fff;

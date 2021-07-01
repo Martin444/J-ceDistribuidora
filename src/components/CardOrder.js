@@ -110,7 +110,7 @@ export default function CardOrder(props) {
                         }}>En camino</button> : props.data.data().completed == 2 ?
                         <button className='btn-w' onClick={()=>{
                             checkOrder()
-                        }}>Enviado </button> :  <button className='btn-f' onClick={()=>{
+                        }}>Entregado </button> :  <button className='btn-f' onClick={()=>{
                             checkOrder()
                         }}>Entregado</button>
                         :
