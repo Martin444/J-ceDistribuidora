@@ -8,7 +8,7 @@ export default function NewProduct() {
         <NewProd>
             <BackBanner description='Completa el formulariocon los datos de tu producto'/>
             <h2 style={{textAlign: "center"}}>Nuevo producto</h2>
-            <FormProduct/>    
+            <FormProduct/>
         </NewProd>
     )
 }

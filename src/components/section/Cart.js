@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {DataContext} from '../Context'
 import {Link} from 'react-router-dom'
 import TruckIcon from '../svg/trash.svg'
+import CardIcon from '../svg/shopping-cart-solid.svg'
 import BackBanner from '../BackBanner'
 import '../css/Details.css'
 import '../css/Cart.css'
@@ -35,7 +36,7 @@ export class Cart extends Component {
                                         <span>${item.price * item.quantity}</span>
                                     </div>
                                     {/* <Colors colors={item.colors}/> */}
-                                    <p>{item.description}</p>
+                                    <p>En stock:{item.stock}</p>
                                     
                                     <div className="amount">
                                        <div className="counter">
@@ -51,7 +52,7 @@ export class Cart extends Component {
                     }
                     <div className="total">
                         <h3>${total}</h3>
-                        <Link to="/confirmar"><a> <img className='iconCard' width='30px' src={TruckIcon}/>Ordenar</a></Link>
+                        <Link to="/confirmar"><a>Ordenar<img className='iconCard' width='20px' src={CardIcon}/></a></Link>
                     </div>
                 </div>
                 )

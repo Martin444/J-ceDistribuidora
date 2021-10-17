@@ -17,12 +17,7 @@ export class Products extends Component {
 
     render() {
         const {products,addCart, userAdmin, removeProductAdmin} = this.context;
-        
 
-
-      
-
-   
         return (
             <div id="product">
             <Header/>
@@ -49,10 +44,14 @@ export class Products extends Component {
                                     </div>
 
                                     {product.data().sendFree ? <p><img className='iconCard' src={TruckIcon} />Envíos gratis</p> : <p></p>}
-                                    {userAdmin ?
-                                        <button onClick={() => removeProductAdmin(product.data())}><img className='iconCard' src={TrashIcon} /> Editar</button>
-                                        :
-                                        <button onClick={() => addCart(product.data())}><img className='iconCard' src={CartIcon} />  - Añadir</button>}
+                                    {
+                                        userAdmin ?
+                                            <Link to={`/editar/${product.id}`}>
+                                                <button><img className='iconCard' src={TrashIcon} /> Editar</button>
+                                            </Link>
+                                            :
+                                            <button onClick={() => addCart(product)}><img className='iconCard' src={CartIcon} />  - Añadir</button>
+                                    }
                                 </div>
                             </div>
                         );

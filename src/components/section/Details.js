@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {DataContext} from '../Context'
 import {Link} from 'react-router-dom'
 import '../css/Details.css'
+import styled from 'styled-components'
 
 
 export class Details extends Component {
@@ -28,32 +29,78 @@ export class Details extends Component {
 
     render() {
         const {product} = this.state;
-        const {addCart} = this.context;
         return (
-            <div className='contenido'>
+            <DetailPage>
                 {
                     product.map(item =>(
-                        <div className="details" key={item.id}>
+                        <div className="container" key={item.id}>
                             <img src={item.data().src} alt=""/>
-                            <div className="box">
+                            <div className="">
                                 <div className="row">
                                     <h2>{item.data().title}</h2>
                                     <span>${item.data().price}</span>
                                 </div>
-                                <p>{item.data().description}</p>
+                                <p>{item.data().stock}</p>
                                 <p>{item.data().content}</p>
-                                <Link to="/carrito" className="cart" onClick={() => addCart(item.data())}>
-                                    Añadir al carrito
-                                </Link>
                             </div>
+                                <Link to="/" className="btn">
+                                    Volver
+                                </Link>
                         </div>
                     ))
                 }
-            </div>
+            </DetailPage>
         )
     }
 }
 
+const DetailPage = styled.div`
+    display: inline-flex;
+    background-color: #0B1D2B;
+    justify-content: center;
+    align-self: center;
+    margin: 0 auto;
+    height: 100vh;
 
+    p{
+        color: white;
+    }
+
+    .container{
+        align-content: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .container img{
+        width: 100%;
+        object-fit: cover;
+        height: 40vh;
+        align-self: center;
+        align-items: center;
+        justify-content:center;
+        text-align: center;
+    }
+
+    .btn{
+        border: none;
+        border-radius: 7px;
+        outline: none;
+        background: #22A7F2;
+        color: white;
+        justify-self: center;
+        justify-content: center;
+        align-self: center;
+        align-items: center;
+        width: 70%;
+        height: 40px;
+        display: inline-flex;
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin: 6px 0;
+    }
+
+`
 
 export default Details

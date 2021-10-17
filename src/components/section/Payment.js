@@ -68,10 +68,9 @@ export const Payment = () => {
     
       const  sendOrder = (event) => {
             event.preventDefault();
-            console.log(event.target)
             const form = new FormData(event.target);
             const newDate = new Date().toISOString();
-    
+            
             const data = {
                 'date': newDate,
                 'userID': user.uid,
@@ -87,32 +86,42 @@ export const Payment = () => {
                 'total' : total,
                 'completed' : 1,
             }
-
+            
             
             firebase.firestore().collection('orders').add(data).then((doc)=>{
 
-                const data2 = {
-                    'date': newDate,
-                    'userID': user.uid,
-                    'name' : user.displayName,
-                    'email' : user.email,
-                    'photoUrl' : user.photoUrl,
-                    'numberPhone' : form.get('number'),
-                    'direction' : form.get('direction'),
-                    'storeName' : form.get('nameStore'),
-                    'lat' : late,
-                    'lng' : lng,
-                    'order' : cart,
-                    'total' : total,
-                    'completed' : 1,
-                    'uid' : doc.id
-                }
-
-                firebase.firestore().collection('orders').doc(doc.id).set(data2).then((t)=>{
-                    setConfirm(true)
-                    resetData();
-                })
-            });
+                    const data2 = {
+                            'date': newDate,
+                            'userID': user.uid,
+                            'name' : user.displayName,
+                            'email' : user.email,
+                            'photoUrl' : user.photoUrl,
+                            'numberPhone' : form.get('number'),
+                            'direction' : form.get('direction'),
+                            'storeName' : form.get('nameStore'),
+                            'lat' : late,
+                            'lng' : lng,
+                            'order' : cart,
+                            'total' : total,
+                            'completed' : 1,
+                            'uid' : doc.id
+                        }
+                        
+                        cart.map((e)=>{
+                            firebase.firestore().collection('products').doc(e.uid).set({
+                                'stock': e.stock - e.quantity,
+                            },{merge : true}).then((t)=>{
+                                    console.log(`editado ${e.uid}`);
+                                })
+                        })
+           
+                            firebase.firestore().collection('orders').doc(doc.id).set(data2).then((t)=>{
+                                    setConfirm(true)
+                                    resetData();
+                                })
+                            });
+                            
+                            
         }
 
     

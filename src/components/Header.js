@@ -61,12 +61,14 @@ export class Header extends Component {
                               <Link to="/crearproducto">
                                   <img src={NewIcon} alt="" width="30" height='20' backgroundColor='#67B31B'/>
                               </Link>
-                          </div> :  <div className="nav-cart">
-                                <span>{cart.length}</span>
-                                <Link to="/carrito">
+                          </div> 
+                          : 
+                            <Link to="/carrito">
+                                <div className="nav-cart">
+                                    <span>{cart.length}</span>
                                     <img src={CartIcon} alt="" width="20" backgroundColor='#67B31B'/>
-                                </Link>
-                            </div>
+                                </div>
+                            </Link>
                           }
                            
                         </nav>

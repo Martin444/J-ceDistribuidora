@@ -90,17 +90,17 @@ export class DataProvider extends Component {
 
         const { cart } = this.state;
 
-        console.log(producter.uid)
+        console.log(producter.data().stock)
         const check = cart.every(item =>{
-            return item.uid !== producter.uid
+            return item.uid !== producter.data().uid
         })
         if(check){
             const data = [{
-                ...producter,
+                ...producter.data(),
                 quantity:1
             }]
 
-            const prices = this.state.total + parseInt(producter.price);
+            const prices = this.state.total + parseInt(producter.data().price);
 
             this.setState({cart:[...cart,...data], total: prices})
             // this.getTotal();
