@@ -17,7 +17,7 @@ export class Cart extends Component {
                 
                     <BackBanner description="Especifica la cantidad
                                                 que quieres de cada producto"/>
-                <h2 style={{textAlign:"center", justifyContent: 'center', color: '#fff', backgroundColor:'#2A302C'}}>No hay productos</h2>
+                <h2 style={{textAlign:"center", justifyContent: 'center', color: '#fff'}}>No hay productos</h2>
             </div>
         }else{
             return (
@@ -44,7 +44,7 @@ export class Cart extends Component {
                                         <span>{item.quantity}</span>
                                         <button className="count" onClick={() => increase(item.uid)}> + </button>
                                        </div>
-                                        <div className="delete" onClick={() => removeProduct(item.uid)}><img className='iconCard' src={TruckIcon}/></div>
+                                        <div className="delete" onClick={() => removeProduct(item.uid)}><img className='iconCard' src={TruckIcon} alt='remove icon'/></div>
                                     </div>
                                 </div>
                             </div>
@@ -52,7 +52,7 @@ export class Cart extends Component {
                     }
                     <div className="total">
                         <h3>${total}</h3>
-                        <Link to="/confirmar"><a>Ordenar<img className='iconCard' width='20px' src={CardIcon}/></a></Link>
+                        <Link to="/confirmar"><p>Ordenar<img className='iconCard' width='20px' src={CardIcon} alt='icon ordenar'/></p></Link>
                     </div>
                 </div>
                 )

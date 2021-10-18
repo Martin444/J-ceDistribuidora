@@ -23,7 +23,7 @@ export default function Banner() {
 const Bann = styled.div`
     width: 100%;
     margin: 0;
-    height: 30vh;
+    /* height: 20vh; */
     background-color: #0B1D2B;
     text-align: left;
     color: #fff;
@@ -31,11 +31,13 @@ const Bann = styled.div`
         height: 1px;
         width: calc(100% - 40px);
         background-color: #fff;
+        margin-bottom: 0.8rem;
     }
     .well{
         width: 100%;
         display: flex;
         justify-content: space-between;
+
         align-items: flex-end;
     }
 
@@ -46,7 +48,7 @@ const Bann = styled.div`
 
         display: inline-block;
         justify-content: start;
-        height: 100%;
+        /* height: 100%; */
         
     }
     .title{
@@ -65,7 +67,7 @@ const Bann = styled.div`
             display: inline-block;
         justify-content: start;
         height: 100%;
-            margin-top:10px;
+            /* margin-top:10px; */
         }
         
     }

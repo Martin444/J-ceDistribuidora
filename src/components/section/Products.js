@@ -49,7 +49,7 @@ export class Products extends Component {
                                                 <button><img className='iconCard' src={TrashIcon} alt='Icon de eliminar'/> Editar</button>
                                             </Link>
                                             :
-                                            <button onClick={() => addCart(product)}><img className='iconCard' src={CartIcon}  alt='add'/>  - Añadir</button>
+                                            <button onClick={() => addCart(product)}><img className='iconCard' src={CartIcon}  alt='add'/>  .  Añadir</button>
                                     }
                                 </div>
                             </div>
