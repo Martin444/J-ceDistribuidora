@@ -110,6 +110,8 @@ export default function FormProduct() {
                                 }}>Subir otro</button>
                             </div>
                             :
+                            <div>
+
                             <form onSubmit={handleSubmit}>
                                 <input type="file" onChange={onChange} name="photo" className='btn-load'/>
                                 <input className='inputer' name="name" type="text" placeholder="Nombre del producto"/>
@@ -121,14 +123,14 @@ export default function FormProduct() {
                                 <input className='inputer' name="stock" type="number" placeholder="Cantidad en stock"/>
                                 <input className='inputer' name="price" type="number" placeholder="Precio"/>
                                 <div className="totali">
-                                    
-                                    <button className="btn-confirme"> Listo  <img className='iconCard' width='20px' src={Check2} alt='chech icon'/></button>
+                                    <button className="btn-confirme"> Listo  .<img className='iconCard' width='20px' src={Check2} alt='chech icon'/></button>
                                 </div>
                             </form>
+                            </div>
                         }
                     </div>
                 :
-                <div className='containerFotm'>
+                <div className='containerForm'>
                         <h2>No tenes permisos para agregar nuevos productos</h2>
                 </div>
             }
@@ -145,15 +147,15 @@ const DivForm = styled.div`
     padding-bottom: 100px;
     
     /* padding: 20px; */
-    .containerFotm{
-        display: inline-flex;
-       
+    .containerForm{
+        display: flex;
         justify-content: center;
         align-content: space-between;
         text-align: center;
-        margin-top: 5px;
+        /* margin-top: 5px; */
 
     }
+
 
     .totali{
         min-height: 70px;
@@ -161,7 +163,7 @@ const DivForm = styled.div`
         display: flex;
         position: fixed;
         bottom: 0px;
-        margin: 0 auto;
+        left: 0px;
         justify-content:center;
         align-items: center;
         align-self: center;
@@ -174,7 +176,7 @@ const DivForm = styled.div`
 
       .btn-confirme{
         cursor: pointer;
-        display: inline-flex;
+        display: flex;
         justify-content: center;
         border: none;
         color: white;
@@ -182,11 +184,11 @@ const DivForm = styled.div`
         justify-self: center;
         text-align: center;
         align-items: center;
-        align-self: center;
+        /* align-self: center; */
         background: #22A7F2;
         border-radius: 8px;
         padding: 8px 5px;
-        width: calc(100vw - 30%);
+        width: calc(100vw - 10%);
     }
 
     label{
@@ -228,7 +230,7 @@ const DivForm = styled.div`
 
     .btn-load{
         cursor: pointer;
-        display: inline-flex;
+        display: flex;
         justify-content: center;
         justify-self: center;
         text-align: center;
@@ -238,8 +240,7 @@ const DivForm = styled.div`
         color: white;
         font-size: 20px;
         padding: 8px 25px;
-        margin: 0px 8px;
-        min-width: calc(100vw - 70px);
+        min-width: 100%;
     }
 
     .btn-load:hover{
@@ -259,12 +260,11 @@ const DivForm = styled.div`
         }
 
         .containerForm{
-            display: inline-flex;
-     
-        justify-content: center;
+        display: flex;
+        /* justify-content: center;
         align-content: center;
-        text-align: center;
-        margin-top: 5px;
+        text-align: center; */
+        /* margin-top: 5px; */
         }
 
         .inputer{
@@ -292,9 +292,7 @@ const DivForm = styled.div`
         background: #22A7F2;
         border-radius: 8px;
         padding: 8px 0px;
-        margin: 0px 8px;
         max-width: calc(100vw - 590px);
-          
         }
 
     }

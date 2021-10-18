@@ -33,7 +33,9 @@ header nav{
 }
 
 
-
+.btnlink{
+    text-decoration: none;
+}
 nav .nav-cart{
     cursor: pointer;
     display: inline-flex;

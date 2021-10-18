@@ -22,8 +22,7 @@ export class Cart extends Component {
         }else{
             return (
                 <div className="conten-cart">
-                    <BackBanner description="Especifica la cantidad
-                                                que quieres de cada producto"/>
+                    <BackBanner description="Especifica la cantidad que quieres de cada producto"/>
                     <h2>Carrito</h2>
                     {
                         cart.map(item =>(

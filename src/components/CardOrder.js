@@ -68,9 +68,9 @@ export default function CardOrder(props) {
             }
         }
 
-        const checkOrder =() => {
+        const checkOrder = (num) => {
             firebase.firestore().collection('orders').doc(props.data.data().uid).update({
-                'completed' : 2,
+                'completed' : num,
             })
         }
 
@@ -106,11 +106,11 @@ export default function CardOrder(props) {
                     user.admin ?
                     props.data.data().completed === 1 ?
                         <button className='btn-confirm' onClick={()=>{
-                            checkOrder()
+                            checkOrder(2);
                         }}>En camino</button> : props.data.data().completed === 2 ?
                         <button className='btn-w' onClick={()=>{
-                            checkOrder()
-                        }}>Entregado </button> :  <button className='btn-f' onClick={()=>{
+                            checkOrder(3);
+                        }}>Marcar entrega</button> :  <button className='btn-f' onClick={()=>{
                             checkOrder()
                         }}>Entregado</button>
                         :

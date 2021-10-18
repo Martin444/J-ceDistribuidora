@@ -129,13 +129,12 @@ const DivForm = styled.div`
     padding-bottom: 100px;
     
     /* padding: 20px; */
-    .containerFotm{
-        display: inline-flex;
+    .containerForm{
+        display: flex;
        
         justify-content: center;
         align-content: space-between;
         text-align: center;
-        margin-top: 5px;
 
     }
 
@@ -145,7 +144,7 @@ const DivForm = styled.div`
         display: flex;
         position: fixed;
         bottom: 0px;
-        margin: 0 auto;
+        left: 0px;
         justify-content:center;
         align-items: center;
         align-self: center;
@@ -170,7 +169,7 @@ const DivForm = styled.div`
         background: #22A7F2;
         border-radius: 8px;
         padding: 8px 5px;
-        width: calc(100vw - 30%);
+        width: calc(100vw - 10%);
     }
 
     label{
@@ -209,10 +208,9 @@ const DivForm = styled.div`
     h2{
         color:white;
     }
-
     .btn-load{
         cursor: pointer;
-        display: inline-flex;
+        display: flex;
         justify-content: center;
         justify-self: center;
         text-align: center;
@@ -222,8 +220,7 @@ const DivForm = styled.div`
         color: white;
         font-size: 20px;
         padding: 8px 25px;
-        margin: 0px 8px;
-        min-width: calc(100vw - 70px);
+        min-width: 100%;
     }
 
     .btn-load:hover{
@@ -243,12 +240,9 @@ const DivForm = styled.div`
         }
 
         .containerForm{
-            display: inline-flex;
+            display: 4flex;
      
-        justify-content: center;
-        align-content: center;
-        text-align: center;
-        margin-top: 5px;
+        
         }
 
         .inputer{
@@ -276,7 +270,6 @@ const DivForm = styled.div`
         background: #22A7F2;
         border-radius: 8px;
         padding: 8px 0px;
-        margin: 0px 8px;
         max-width: calc(100vw - 590px);
           
         }

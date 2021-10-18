@@ -7,7 +7,7 @@ export default function NewProduct() {
     return (
         <NewProd>
             <BackBanner description='Completa el formulariocon los datos de tu producto'/>
-            <h2 style={{textAlign: "center"}}>Nuevo producto</h2>
+            <h2 style={{textAlign: "center", marginTop: '3rem'}}>Nuevo producto</h2>
             <FormProduct/>
         </NewProd>
     )
@@ -16,9 +16,6 @@ export default function NewProduct() {
 const NewProd = styled.div`
 
     background-color: #0B1D2B;
-    
     text-align: center;
-
-
 
 `;

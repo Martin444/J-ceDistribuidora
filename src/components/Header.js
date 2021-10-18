@@ -41,12 +41,12 @@ export class Header extends Component {
                         
                         <nav>
                           {
-                              userAdmin ? <Link to="/ordenes">
+                              userAdmin ? <Link to="/ordenes" className='btnlink'>
                               <div className="nav-cart">
                                   <img src={HistoryIcon} alt="" width="20" backgroundColor='#67B31B'/>
                                   <span>Pedidos</span>
                               </div>
-                          </Link> :<Link to="/ordenes">
+                          </Link> :<Link to="/ordenes" className='btnlink'>
                               <div className="nav-cart">
                                   <img src={HistoryIcon} alt="" width="20" backgroundColor='#67B31B'/>
                                   <span>Historial</span>
