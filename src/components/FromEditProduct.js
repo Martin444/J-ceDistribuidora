@@ -1,47 +1,37 @@
-import React, { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import styled from 'styled-components'
-import firebase ,{ storage } from '../Utils/firebase'
+import { storage } from '../Utils/firebase'
 import { DataContext } from './Context';
 import Check2 from './svg/check2.svg'
+import firebase from 'firebase'
 
 
-const getProduct = () =>{
- 
- };
-export default function FormEditProduct({uid}) {
+export default function FormEditProduct({producter}) {
+    const {user} = useContext(DataContext);
 
+    const {  content, title, sendFree, stock, price, src, uid} = producter;
+    
     const [petPhotom, setPetPhoto] = useState([]);
-    const [product, setProduct] = useState([]);
+    const [freeSend, setFreeSend] = useState(sendFree);
     const [sendForm, setSendForm] = useState(false);
     const [adminConf, setadminConf] = useState(false);
 
-    const {user, products} = useContext(DataContext);
 
     const adminConfirm = () => {
+        console.log(`Soy send free ${sendFree}`)
         if(user){
-            if(user.admin){
-                setadminConf(true)
-            } else {
-                setadminConf(false)
-            }
+            setPetPhoto(src)
+            setadminConf(user.admin)
         } else {
             setadminConf(false)
         }
+
     }
 
 
-    if(uid){
-        const res = products;
-        const data = res.filter(item =>{
-            return item.data().uid === uid
-        })
-        setProduct({product: data})
-        console.log( `Mis datos son ${data}`)
-    }
 
     useEffect(()=>{
         adminConfirm();
-
     })
 
     const handleSubmit = (event) => {
@@ -64,12 +54,12 @@ export default function FormEditProduct({uid}) {
             // 'userName': props.user.displayName,
         }
 
-        // firebase.firestore().collection('products').doc(uid).set(data, {merge: true}).then(data=>{
+        firebase.firestore().collection('products').doc(uid).set(data, {merge: true}).then(data=>{
 
-        //     setSendForm(true)
+            setSendForm(true)
 
            
-        // })
+        })
     }
 
     const onChange = event => {
@@ -97,24 +87,26 @@ export default function FormEditProduct({uid}) {
                             sendForm ?
                             <div>
                                 <h2>Producto Editado con éxito</h2>
-                                <button className='btn-load' onClick={()=>{
+                                {/* <button className='btn-load' onClick={()=>{
                                     setSendForm(false)
-                                }}>Editar otro dato</button>
+                                }}>Editar otro dato</button> */}
                             </div>
                             :
                             <form onSubmit={handleSubmit}>
                                 <input type="file" onChange={onChange} name="photo" className='btn-load'/>
-                                <input className='inputer' name="name" type="text" placeholder="Nombre del producto"/>
-                                <input className='inputer' name="conten" type="text" placeholder="Breve descripción"/>
+                                <input className='inputer' name="name" type="text" placeholder="Nombre del producto" defaultValue={title}/>
+                                <input className='inputer' name="conten" type="text" placeholder="Breve descripción" defaultValue={content}/>
                                 <div className='ch'>
-                                    <input className='che' name="description" type="checkbox"/>
+                                    <input className='che' name="description" type="checkbox" checked={freeSend} onChange={()=>{
+                                        setFreeSend(!freeSend);
+                                    }}/>
                                     <label for="description">Envios gratis</label>
                                 </div>
-                                <input className='inputer' name="stock" type="number" placeholder="Cantidad en stock"/>
-                                <input className='inputer' name="price" type="number" placeholder="Precio"/>
+                                <input className='inputer' name="stock" type="number" placeholder="Cantidad en stock" defaultValue={stock}/>
+                                <input className='inputer' name="price" type="number" placeholder="Precio" defaultValue={price}/>
                                 <div className="totali">
                                     
-                                    <button className="btn-confirme"> Listo  <img className='iconCard' width='20px' src={Check2}/></button>
+                                    <button className="btn-confirme"> Listo  <img className='iconCard' width='20px' src={Check2} alt='Check icon'/></button>
                                 </div>
                             </form>
                         }

@@ -7,7 +7,7 @@ import Check2 from './svg/check2.svg'
 
 export default function FormProduct() {
 
-    const [petPhotom, setPetPhoto] = useState([]);
+    const [petPhotom, setPetPhoto] = useState(null);
     const [sendForm, setSendForm] = useState(false);
     const [adminConf, setadminConf] = useState(false);
 
@@ -35,42 +35,49 @@ export default function FormProduct() {
         const form = new FormData(event.target);
         const newDate = new Date().toISOString();
 
-        const data = {
-            'title': form.get('name'),
-            'date' : newDate,
-            'sendFree': form.get('description'),
-            'content': form.get('conten'),
-            'price': form.get('price'),
-            'stock': form.get('stock'),
-            'src': petPhotom,
-            // 'profilePic':props.user.photoURL,
-            // 'type': form.get('type'),
-            // 'userContact': props.user.email,
-            // 'userName': props.user.displayName,
-        }
+        console.log(form.get('price'));
 
-        firebase.firestore().collection('products').add(data).then(data=>{
-
-            const data2 = {
+        if(form.get('name').length < 3 || form.get('price').length === 0 || form.get('stock').length === 0 || petPhotom === null){
+            alert('Algunos campos son obligatorios');
+        } else {
+            const data = {
                 'title': form.get('name'),
                 'date' : newDate,
-                'sendFree': form.get('description'),
+                'sendFree': form.get('description') !== null,
                 'content': form.get('conten'),
                 'price': form.get('price'),
                 'stock': form.get('stock'),
                 'src': petPhotom,
-                'uid': data.id
                 // 'profilePic':props.user.photoURL,
                 // 'type': form.get('type'),
                 // 'userContact': props.user.email,
                 // 'userName': props.user.displayName,
             }
-
-            firebase.firestore().collection('products').doc(data.id).set(data2).then((da)=>{
-
-                setSendForm(true)
+    
+            firebase.firestore().collection('products').add(data).then(data=>{
+    
+                const data2 = {
+                    'title': form.get('name'),
+                    'date' : newDate,
+                    'sendFree': form.get('description') !== null,
+                    'content': form.get('conten'),
+                    'price': form.get('price'),
+                    'stock': form.get('stock'),
+                    'src': petPhotom,
+                    'uid': data.id
+                    // 'profilePic':props.user.photoURL,
+                    // 'type': form.get('type'),
+                    // 'userContact': props.user.email,
+                    // 'userName': props.user.displayName,
+                }
+    
+                firebase.firestore().collection('products').doc(data.id).set(data2).then((da)=>{
+    
+                    setSendForm(true)
+                })
             })
-        })
+        }
+
     }
 
     const onChange = event => {
@@ -115,7 +122,7 @@ export default function FormProduct() {
                                 <input className='inputer' name="price" type="number" placeholder="Precio"/>
                                 <div className="totali">
                                     
-                                    <button className="btn-confirme"> Listo  <img className='iconCard' width='20px' src={Check2}/></button>
+                                    <button className="btn-confirme"> Listo  <img className='iconCard' width='20px' src={Check2} alt='chech icon'/></button>
                                 </div>
                             </form>
                         }

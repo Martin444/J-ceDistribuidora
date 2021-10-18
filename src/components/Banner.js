@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import ImaBanner from '../Image/banner2.jpg'
 import JyceIcon from './svg/LogoTafibg.png'
 
 export default function Banner() {

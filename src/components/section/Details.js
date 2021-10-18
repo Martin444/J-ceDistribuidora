@@ -38,10 +38,10 @@ export class Details extends Component {
                             <div className="">
                                 <div className="row">
                                     <h2>{item.data().title}</h2>
-                                    <span>${item.data().price}</span>
+                                    <span>Precio: ${item.data().price}</span>
                                 </div>
-                                <p>{item.data().stock}</p>
-                                <p>{item.data().content}</p>
+                                <p>En stock: {item.data().stock}</p>
+                                <p>Detalles: {item.data().content}</p>
                             </div>
                                 <Link to="/" className="btn">
                                     Volver
@@ -55,7 +55,7 @@ export class Details extends Component {
 }
 
 const DetailPage = styled.div`
-    display: inline-flex;
+    display: flex;
     background-color: #0B1D2B;
     justify-content: center;
     align-self: center;
@@ -97,6 +97,7 @@ const DetailPage = styled.div`
         display: inline-flex;
         cursor: pointer;
         text-transform: uppercase;
+        text-decoration: none;
         letter-spacing: 1px;
         margin: 6px 0;
     }

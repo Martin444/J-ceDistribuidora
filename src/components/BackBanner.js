@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
-import ImaBanner from '../Image/banner2.jpg'
 import JyceIcon from './svg/LogoTafibg.png'
 import BackIcon from './svg/back.svg'
 

@@ -11,7 +11,7 @@ export default function EditProduct(props) {
             <BackBanner description='Edita cualquier dato de este producto'/>
             <div>
                 <h2 style={{textAlign: "center"}}>Editar producto</h2>
-                <FormEditProduct uid= {props.match.params.id}/>
+                <FormEditProduct producter= {props.location.state}/>
             </div>
         </EditProducte>
     )

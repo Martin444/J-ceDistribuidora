@@ -79,7 +79,7 @@ export default function CardOrder(props) {
         <Card>
             <div className= {props.data.data().completed ? 'blackback' : 'whiteBack'}>
                 <div className='row-title'>
-                    <h2>{props.data.data().completed == 1 ? 'Pedido Ingresado' : props.data.data().completed == 2 ? 'Pedido en camino' : 'Pedido entregado'}</h2>
+                    <h2>{props.data.data().completed === 1 ? 'Pedido Ingresado' : props.data.data().completed === 2 ? 'Pedido en camino' : 'Pedido entregado'}</h2>
                     <h4>Total: {props.data.data().total} pesos</h4>
                 </div>
 
@@ -104,24 +104,24 @@ export default function CardOrder(props) {
             
                 {
                     user.admin ?
-                    props.data.data().completed == 1 ?
+                    props.data.data().completed === 1 ?
                         <button className='btn-confirm' onClick={()=>{
                             checkOrder()
-                        }}>En camino</button> : props.data.data().completed == 2 ?
+                        }}>En camino</button> : props.data.data().completed === 2 ?
                         <button className='btn-w' onClick={()=>{
                             checkOrder()
                         }}>Entregado </button> :  <button className='btn-f' onClick={()=>{
                             checkOrder()
                         }}>Entregado</button>
                         :
-                        props.data.data().completed == 1 ?
+                        props.data.data().completed === 1 ?
                         <button className='btn-confirm' onClick={()=>{
                             deleteOrder()
                         }}>Cancelar</button>
 
                         :
 
-                        props.data.data().completed == 2 ?
+                        props.data.data().completed === 2 ?
                         <button className='btn-w' onClick={()=>{
                             
                         }}></button>

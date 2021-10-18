@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import {compose, withProps, withHandlers} from 'recompose'
-import { GoogleMap, withScriptjs, withGoogleMap, Marker, google} from 'react-google-maps';
+import {compose, withProps} from 'recompose'
+import { GoogleMap, withScriptjs, withGoogleMap, Marker} from 'react-google-maps';
 
 
 
