@@ -5,21 +5,26 @@
     {
       "src": "LogoTafi.jpeg",
       "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "type": "image/x-icon",
+      "purpose": "any maskable"
     },
     {
       "src": "LogoTafi.jpeg",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "any maskable"
     },
     {
       "src": "LogoTafi.jpeg",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any maskable"
     }
   ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#fffffff",
-  "background_color": "#0B1D2B"
+  "start_url": "/",
+  "scope": "/",
+  "display": "fullscreen",
+  "theme_color": "#ffffff",
+  "background_color": "#0B1D2B",
+  "prefer_related_applications": true
 }
